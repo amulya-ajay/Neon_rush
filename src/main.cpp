@@ -1,27 +1,28 @@
-﻿#include "raylib.h"
+#include "game/Game.h"
+
+#include "raylib.h"
 
 int main()
 {
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
-
-    InitWindow(screenWidth, screenHeight, "NEON RUSH");
-
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT);
+    InitWindow(1280, 720, "NEON RUSH - Outrun the traffic");
+    SetWindowMinSize(960, 540);
     SetTargetFPS(60);
 
-    while (!WindowShouldClose())
     {
-        BeginDrawing();
+        Game game;
+        while (!WindowShouldClose() && !game.ShouldQuit())
+        {
+            game.Update(GetFrameTime());
 
-        ClearBackground(BLACK);
-
-        DrawText("NEON RUSH", 480, 300, 50, SKYBLUE);
-        DrawText("Highway Survival", 520, 365, 25, WHITE);
-
-        EndDrawing();
+            BeginDrawing();
+            ClearBackground(Color{ 4, 7, 22, 255 });
+            game.Draw();
+            EndDrawing();
+        }
+        game.Shutdown();
     }
 
     CloseWindow();
-
     return 0;
 }
