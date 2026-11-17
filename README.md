@@ -81,4 +81,4 @@ tests/                  Logic checks
 docs/                   Architecture, UML, and test notes
 ```
 
-See [docs/architecture.md](docs/architecture.md), [docs/UML.md](docs/UML.md), and [docs/testing.md](docs/testing.md) for implementation details.
+See [docs/architecture.md](docs/architecture.md), [docs/UML.md](docs/UML.md), [docs/testing.md](docs/testing.md), and [docs/viva-guide.md](docs/viva-guide.md) for implementation and viva preparation.
